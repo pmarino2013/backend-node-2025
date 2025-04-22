@@ -1,33 +1,19 @@
 import { Router } from "express";
+import {
+  deleteUserId,
+  getUsers,
+  postUser,
+  putUserId,
+} from "../controllers/usuarios.js";
 
 const routerUser = Router();
 
-routerUser.get("/", (req, res) => {
-  const { limit, page } = req.query;
-  res.status(200).json({
-    message: "Bienvenidos a Nodejs!",
-    page,
-    limit,
-  });
-});
+routerUser.get("/", getUsers);
 
-routerUser.post("/", (req, res) => {
-  const { message } = req.body;
-  res.status(201).json({
-    message,
-  });
-});
-routerUser.put("/:id", (req, res) => {
-  const { id } = req.params;
-  res.status(200).json({
-    id,
-  });
-});
-routerUser.delete("/:id", (req, res) => {
-  const { id } = req.params;
-  res.status(200).json({
-    id,
-  });
-});
+routerUser.post("/", postUser);
+
+routerUser.put("/:id", putUserId);
+
+routerUser.delete("/:id", deleteUserId);
 
 export default routerUser;
