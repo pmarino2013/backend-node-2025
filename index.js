@@ -1,40 +1,24 @@
-// const express = require('express')
-import express from "express";
-const app = express();
-const port = 3000;
+import Server from "./models/server.js";
 
-app.get("/", (req, res) => {
-  //   res.send("Bienvenidos a Nodejs!");
-  res.json({
-    message: "Hola mundo",
-    Status: "ok",
-  });
-});
+const server = new Server();
 
-app.post("/", (req, res) => {
-  //   res.send("Bienvenidos a Nodejs!");
-  res.json({
-    message: "soy una petición POST",
-    Status: "ok",
-  });
-});
+server.listen();
 
-app.put("/:id", (req, res) => {
-  //   res.send("Bienvenidos a Nodejs!");
-  res.json({
-    message: "Soy una petición PUT",
-    Status: "ok",
-  });
-});
+// class Estudiante {
+//   constructor(nombre, edad, comision) {
+//     this.nombre = nombre;
+//     this.edad = edad;
+//     this.comision = comision;
+//   }
 
-app.delete("/:id", (req, res) => {
-  //   res.send("Bienvenidos a Nodejs!");
-  res.json({
-    message: "soy una petición DELETE",
-    Status: "ok",
-  });
-});
+//   listar() {
+//     console.log(`Nombre: ${this.nombre}`);
+//     console.log(`Comisión: ${this.comision}`);
+//   }
+// }
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
-});
+// const estudiante1 = new Estudiante("Pablo Marino", 42, "web5");
+// const estudiante2 = new Estudiante("José Simón", 23, "web5");
+
+// estudiante1.listar();
+// estudiante2.listar();
