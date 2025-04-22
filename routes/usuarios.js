@@ -19,7 +19,13 @@ routerUser.post("/", (req, res) => {
 });
 routerUser.put("/:id", (req, res) => {
   const { id } = req.params;
-  res.status(201).json({
+  res.status(200).json({
+    id,
+  });
+});
+routerUser.delete("/:id", (req, res) => {
+  const { id } = req.params;
+  res.status(200).json({
     id,
   });
 });
